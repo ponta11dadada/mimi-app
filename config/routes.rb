@@ -3,7 +3,9 @@ Rails.application.routes.draw do
  get "tweets/index"
  resources :sessions, only:[:new, :create, :destroy]
  resources :users do
- 	resources :tweets, only:[:new, :create, :show, :destroy]
+ 	resources :tweets, only:[:new, :create, :show, :destroy] do
+ 		resources :comments, only:[:create]
+ 	end
  end
 
  root "users#index"
