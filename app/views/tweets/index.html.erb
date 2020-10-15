@@ -2,8 +2,8 @@
 <ul class="list-group">
   <% @tweet.each do |tweet| %>
   <li class="list-group-item">
-  	<span class="badge text-danger"><%= link_to "[削除]",user_tweet_path(@tweet, tweet.id),method: :delete %></span>
-    <%= tweet.title %>
+  	<span class="badge text-danger"><%= link_to "[削除]", tweet_path(tweet), method: :delete %></span>
+    <%= link_to tweet.title, tweet_path(tweet) %>
     <%= tweet.body %>
   </li>
   <% end %>
