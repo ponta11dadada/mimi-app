@@ -2,3 +2,14 @@
 <br>
 <p><%= @tweet.title %></p>
 <p><%= @tweet.body %></p>
+
+
+
+
+<%= form_for [@tweet, @comment] do |form| %>
+  <%= form.text_field :content %>
+  <br>
+  <%= form.submit 'コメントする' %>
+<% end %>
+
+<%= link_to "ホームへ戻る", tweets_path %>
