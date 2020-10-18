@@ -1,6 +1,7 @@
 <h3 class="page-header">ツイート一覧</h3>
+<%= link_to "お悩み相談をする", new_tweet_path, class:"btn btn-primary" %>
 <ul class="list-group">
-  <% @tweet.each do |tweet| %>
+  <% @tweets.each do |tweet| %>
   <li class="list-group-item">
   	<span class="badge text-danger"><%= link_to "[削除]", tweet_path(tweet), method: :delete %></span>
     <%= link_to tweet.title, tweet_path(tweet) %>

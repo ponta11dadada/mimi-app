@@ -1,9 +1,9 @@
-<h3 class="page-header">今日の出来事をつぶやこう</h3>
-<%= form_for([@user, @user.tweets.build]) do |f| %>
+<h3 class="page-header">お悩み相談</h3>
+<%= form_with model: @new_tweet do |f| %>
 <p><%= f.label :title,"お悩み" %></p>
 <p><%= f.text_field :title %></p>
 
-<p><%= f.label :body,"投稿内容" %></p>
+<p><%= f.label :body,"お悩み内容" %></p>
 <p><%= f.text_area :body %></p>
-<p><%= f.submit "投稿", class: "btn btn-primary" %></p>
+<p><%= f.submit "投稿", class:"btn btn-primary" %></p>
 <% end %>
