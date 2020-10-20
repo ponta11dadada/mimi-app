@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
  def create
-    @comments = Comment.all
-
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save!

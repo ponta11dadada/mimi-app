@@ -1,11 +1,22 @@
-<h3 class="page-header">ツイート一覧</h3>
+<h3 class="page-header">お悩み一覧</h3>
 <%= link_to "お悩み相談をする", new_tweet_path, class:"btn btn-primary" %>
-<ul class="list-group">
+
   <% @tweets.each do |tweet| %>
-  <li class="list-group-item">
-  	<span class="badge text-danger"><%= link_to "[削除]", tweet_path(tweet), method: :delete %></span>
-    <%= link_to tweet.title, tweet_path(tweet) %>
-    <%= tweet.body %>
-  </li>
+  <table  class="table table-hover table-inverse">
+  	<thead>
+  		<tr>
+  			<th>お悩み</th>
+  			<th>お悩み内容</th>
+  			<th>投稿者</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr>
+  			<td><%= link_to tweet.title, tweet_path(tweet) %></td>
+  			<td><%= truncate(tweet.body, length: 15) %></td>
+  			<td><%= tweet.user.name %>さん投稿</td>
+  		</tr>
+  	</tbody>
+  </table>
   <% end %>
-</ul>
+  

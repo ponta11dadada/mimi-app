@@ -1,4 +1,4 @@
-<h2><%= @tweet.user.email %>さん投稿</h2>
+<h2><%= @tweet.user.name %>さん投稿</h2>
 <br>
 <p><%= @tweet.title %></p>
 <p><%= @tweet.body %></p>
@@ -6,7 +6,9 @@
 <h2>コメント一覧</h2>
 <% @comments.each do |c| %>
   <div>
-    <%= c.content %>
+  	<p><%= c.user.name %>さんのお返事</p>
+  	<br>
+    <p><%= c.content %></p>
     <hr>
   </div>
 <% end %>
