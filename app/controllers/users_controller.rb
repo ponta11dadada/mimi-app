@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :login_check
   def index
   	@user = User.all
   end
@@ -43,6 +43,13 @@ class UsersController < ApplicationController
 
   def user_update_params
   	params.require(:user).permit(:name, :email)
+  end
+
+  def login_check
+    unless logged_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to new_session_path
+    end
   end
 
 end
