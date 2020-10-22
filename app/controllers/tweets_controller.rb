@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :login_check, except:[:index]
   def index
     @tweets = Tweet.all
   end
@@ -33,5 +34,12 @@ class TweetsController < ApplicationController
   private
   def tweet_params
     params.require(:tweet).permit(:title, :body)
+  end
+
+  def login_check
+  unless logged_in?
+    flash[:alert] = "ログインしてください"
+    redirect_to new_session_path
+  end
   end
 end
