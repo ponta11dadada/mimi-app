@@ -2,6 +2,8 @@
 <div class="col-md-6 col-md-offset-2">
   <h1>ユーザーを編集する</h1>
   <%= form_for(@user) do |f| %>
+  <p><%= f.label :name , "名前"%></p>
+  <p><%= f.text_field :name %></p>
   <p><%= f.label :email , "メールアドレス"%></p>
   <p><%= f.email_field :email %></p>
   <p><%= f.submit "更新する", class: "btn btn-primary" %></p>

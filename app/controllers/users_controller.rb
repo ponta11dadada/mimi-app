@@ -17,6 +17,8 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+
+    @my_tweets = @user.tweets
   end
 
   def edit
@@ -26,7 +28,7 @@ class UsersController < ApplicationController
   def update
   	@user = User.find(params[:id])
   	@user.update(user_update_params)
-  	redirect_to root_path
+  	redirect_to user_path(@user)
   end
 
   def destroy
