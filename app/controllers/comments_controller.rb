@@ -16,11 +16,11 @@ def create
     params.require(:comment).permit(:content, :tweet_id, :user_id)
   end
 
-   def login_check
-  unless logged_in?
-    flash[:alert] = "ログインしてください"
-    redirect_to new_session_path
-  end
+  def login_check
+    unless logged_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to new_session_path
+    end
   end
 end
 
